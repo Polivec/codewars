@@ -23,3 +23,8 @@ function toCamelCase(string $str){
 
   return $result;
 }
+
+function bestToCamelCase(string $str): string
+{
+  return preg_replace_callback('/[-_](.)/', static fn($match) => strtoupper($match[1]), $str);
+}
